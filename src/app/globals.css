@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Variables ────────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    --font-display: "Barlow Condensed", Impact, sans-serif;
+    --font-body:    "DM Sans", system-ui, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: #ffffff;
+    color: #070F23;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* All display headings use Barlow Condensed */
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+    line-height: 1.0;
+  }
+}
+
+/* ── Reusable Utilities ───────────────────────────────────────────────────── */
+@layer components {
+
+  .section-pad {
+    @apply py-24 px-6 md:px-12 lg:px-20;
+  }
+
+  /* Gold eyebrow label above section headings */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.6875rem;        /* 11px */
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #C4923A;
+    margin-bottom: 1rem;
+  }
+
+  .eyebrow::before {
+    content: "";
+    display: block;
+    width: 2rem;
+    height: 1.5px;
+    background-color: #C4923A;
+    flex-shrink: 0;
+  }
+
+  /* Section heading style */
+  .section-heading {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+
+  /* Gold accent bar — small horizontal rule */
+  .gold-rule {
+    display: block;
+    width: 3rem;
+    height: 3px;
+    background-color: #C4923A;
+    border-radius: 2px;
+  }
+
+  /* Scroll-reveal fade-up — apply to wrapper, add .visible class via JS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-28px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+
+  .reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ── Reduced Motion ───────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Custom Scrollbar ─────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #070F23;
+}
+::-webkit-scrollbar-thumb {
+  background: #C4923A;
+  border-radius: 3px;
+}
