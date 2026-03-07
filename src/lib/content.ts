@@ -23,10 +23,10 @@ export const siteConfig = {
   shortName: "TTK LLC",
   tagline:   "Defense. Engineering. Results.",
   phone:     "+1 (256) 606-7350",
-  email:     "contact@ttkllc.com",
+  email:     "mattsipe@ttkllc.com",
   address:   "105 Boardhouse Br, Madison, AL 35756",
   social: {
-    linkedin: "", // Add LinkedIn URL here
+    linkedin: "https://www.linkedin.com/in/matt-sipe-12180218", // Add LinkedIn URL here
   },
 };
 
@@ -41,11 +41,11 @@ export const navLinks = [
 // ── Hero ──────────────────────────────────────────────────────────────────────
 
 export const hero = {
-  eyebrow:       "Defense Consulting",
-  headlineLine1: "Mission-Ready",
+  eyebrow:       "To The King LLC",
+  headlineLine1: "Defense (War) and Strategy",
   headlineLine2: "Consulting.",
   subheadline:
-    "I deliver expert MOSA advisory, engineering support, and strategic leadership to U.S. Government and DoD clients.",
+    "I deliver expert MOSA advisory, engineering support, and strategic leadership to U.S. Government and DoW clients.",
   primaryCTA:   { label: "Partner With Me", href: "/contact" },
   secondaryCTA: { label: "My Services",     href: "/services" },
   imageSrc:     IMAGES.opsRoom,
@@ -58,7 +58,7 @@ export const credentialsBar = [
   "Veteran-Owned Small Business",
   "20+ Years DoD Experience",
   "MOSA Specialist",
-  "PEO AVN Alumni",
+  "Aviation, Engineering, Technology",
   "$4B+ Acquisition Oversight",
 ];
 
@@ -145,7 +145,7 @@ export const whyTTK = {
   items: [
     {
       icon:        "shield",
-      title:       "Operator Experience",
+      title:       "Real Experience",
       description: "I've held the roles you're navigating. My advice is grounded in real government and defense program operations.",
     },
     {
