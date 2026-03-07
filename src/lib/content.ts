@@ -42,8 +42,8 @@ export const navLinks = [
 
 export const hero = {
   eyebrow:       "To The King LLC",
-  headlineLine1: "Defense (War) and Strategy",
-  headlineLine2: "Consulting.",
+  headlineLine1: "Defense and Strategy",
+  headlineLine2: "Solutions.",
   subheadline:
     "I deliver expert MOSA advisory, engineering support, and strategic leadership to U.S. Government and DoW clients.",
   primaryCTA:   { label: "Partner With Me", href: "/contact" },
