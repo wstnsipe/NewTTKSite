@@ -166,6 +166,22 @@ export const whyTTK = {
   ],
 };
 
+// ── LinkedIn Insights ─────────────────────────────────────────────────────────
+
+export const linkedInInsights = {
+  eyebrow:           "Thought Leadership",
+  headline:          "Latest Insights from Matt",
+  subtext:
+    "Straight talk on defense acquisition, MOSA strategy, and what it takes to deliver results in complex programs — from someone who's lived it.",
+  profileName:       "Matt Sipe",
+  profileTitle:      "Principal, TTK LLC",
+  profileCredential: "Former Chief Engineer, PEO Aviation | 20+ Years DoD",
+  linkedInUrl:       "https://www.linkedin.com/in/matt-sipe-12180218",
+  followCTA:         "Follow on LinkedIn",
+  allPostsCTA:       "See All Posts on LinkedIn",
+  // Post data lives in src/data/linkedInPosts.ts — edit there to add/update posts.
+};
+
 // ── CTA Banner ────────────────────────────────────────────────────────────────
 
 export const ctaBanner = {

@@ -3,8 +3,9 @@ import { CredentialsBar }  from "@/components/sections/CredentialsBar";
 import { Capabilities }    from "@/components/sections/Capabilities";
 import { AboutSummary }    from "@/components/sections/AboutSummary";
 import { Testimonial }     from "@/components/sections/Testimonial";
-import { WhyTTK }          from "@/components/sections/WhyTTK";
-import { CTABanner }       from "@/components/sections/CTABanner";
+import { WhyTTK }            from "@/components/sections/WhyTTK";
+import { LinkedInInsights } from "@/components/sections/LinkedInInsights";
+import { CTABanner }        from "@/components/sections/CTABanner";
 
 export default function HomePage() {
   return (
@@ -15,6 +16,7 @@ export default function HomePage() {
       <AboutSummary />
       <Testimonial />
       <WhyTTK />
+      <LinkedInInsights />
       <CTABanner />
     </>
   );
