@@ -1,24 +1,53 @@
+"use client";
+
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { hero } from "@/lib/content";
+import { hero, heroSlides } from "@/lib/content";
+
+const INTERVAL_MS = 5500;
 
 export function Hero() {
+  const [current, setCurrent] = useState(0);
+
+  const advance = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % heroSlides.length);
+  }, []);
+
+  useEffect(() => {
+    const id = setInterval(advance, INTERVAL_MS);
+    return () => clearInterval(id);
+  }, [advance]);
+
   return (
     <section className="relative h-screen min-h-[640px] flex items-center overflow-hidden">
 
-      {/* ── Background image ──────────────────────────────────────── */}
-      <Image
-        src={hero.imageSrc}
-        alt={hero.imageAlt}
-        fill
-        priority
-        className="object-cover object-center"
-        sizes="100vw"
-      />
+      {/* ── Slideshow backgrounds ───────────────────────────────────── */}
+      {heroSlides.map((slide, i) => (
+        <div
+          key={slide.src}
+          aria-hidden={i !== current}
+          className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+          style={{ opacity: i === current ? 1 : 0 }}
+        >
+          <Image
+            src={slide.src}
+            alt={slide.alt}
+            fill
+            priority={i === 0}
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+        </div>
+      ))}
 
       {/* ── Overlays ──────────────────────────────────────────────── */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#04091A]/96 via-[#04091A]/80 to-[#04091A]/25" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#04091A]/65 via-transparent to-[#04091A]/15" />
+      {/* Base dark veil — ensures minimum readability on any slide */}
+      <div className="absolute inset-0 bg-[#04091A]/50" />
+      {/* Directional L→R: deep navy left, transparent right */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#04091A]/95 via-[#04091A]/70 to-transparent" />
+      {/* T→B: subtle top/bottom vignette */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#04091A]/70 via-transparent to-[#04091A]/20" />
       {/* Scanline texture */}
       <div
         aria-hidden
@@ -54,17 +83,17 @@ export function Hero() {
 
           {/* Sub-headline */}
           <p
-            className="font-sans text-white/60 leading-relaxed mb-10 max-w-md"
+            className="font-sans text-white/70 leading-relaxed mb-10 max-w-md"
             style={{ fontSize: "clamp(15px, 1.4vw, 17px)" }}
           >
             {hero.subheadline}
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4">
             <Link
               href={hero.primaryCTA.href}
-              className="inline-flex items-center gap-2 bg-gold text-[#04091A] font-sans font-semibold text-sm px-8 py-4 rounded hover:bg-gold-light transition-all duration-200 shadow-[0_4px_24px_rgba(196,146,58,0.4)] hover:shadow-[0_6px_36px_rgba(196,146,58,0.6)] hover:-translate-y-px"
+              className="inline-flex items-center justify-center gap-2 bg-gold text-[#04091A] font-sans font-semibold text-sm px-8 py-4 rounded hover:bg-gold-light transition-all duration-200 shadow-[0_4px_24px_rgba(196,146,58,0.4)] hover:shadow-[0_6px_36px_rgba(196,146,58,0.6)] hover:-translate-y-px"
             >
               {hero.primaryCTA.label}
               <svg aria-hidden="true" className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -73,14 +102,14 @@ export function Hero() {
             </Link>
             <Link
               href={hero.secondaryCTA.href}
-              className="inline-flex items-center gap-2 border border-white/40 text-white font-sans font-semibold text-sm px-8 py-4 rounded hover:border-white/70 hover:bg-white/5 transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 border border-white/40 text-white font-sans font-semibold text-sm px-8 py-4 rounded hover:border-white/70 hover:bg-white/5 transition-all duration-200"
             >
               {hero.secondaryCTA.label}
             </Link>
           </div>
 
-          {/* Micro-credential line */}
-          <div className="mt-12 flex items-center gap-3">
+          {/* Micro-credential line — hidden on small screens to avoid wrapping */}
+          <div className="mt-12 hidden sm:flex items-center gap-3">
             <div className="w-5 h-px bg-gold/50" />
             <p className="font-sans text-[10px] tracking-[0.18em] uppercase text-white/30">
               Veteran-Owned · 20+ Years DoD · PEO AVN Alumni
@@ -89,8 +118,28 @@ export function Hero() {
         </div>
       </div>
 
+      {/* ── Slide indicators ──────────────────────────────────────── */}
+      <div
+        className="absolute bottom-[5.5rem] left-1/2 -translate-x-1/2 flex gap-2"
+        role="tablist"
+        aria-label="Slideshow navigation"
+      >
+        {heroSlides.map((slide, i) => (
+          <button
+            key={i}
+            role="tab"
+            aria-selected={i === current}
+            aria-label={`Slide ${i + 1}: ${slide.alt}`}
+            onClick={() => setCurrent(i)}
+            className={`h-0.5 rounded-full transition-all duration-500 ${
+              i === current ? "w-6 bg-gold" : "w-2 bg-white/30 hover:bg-white/50"
+            }`}
+          />
+        ))}
+      </div>
+
       {/* ── Scroll indicator ──────────────────────────────────────── */}
-      <div aria-hidden="true" className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 animate-bounce">
+      <div aria-hidden="true" className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 animate-bounce">
         <div className="w-px h-7 bg-gradient-to-b from-transparent to-white/25" />
         <div className="w-1.5 h-1.5 rounded-full bg-white/25" />
       </div>

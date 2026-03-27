@@ -16,6 +16,16 @@ export const IMAGES = {
   heroBg:  `${CDN}/Screenshot%202025-09-07%20at%205.00.33%E2%80%AFPM.png`,
 };
 
+// Hero slideshow images — slides 2-6 stored locally in /public/images/hero/
+export const heroSlides = [
+  { src: IMAGES.opsRoom,                 alt: "Defense operations team" },
+  { src: "/images/hero/slide-1.jpg",     alt: "Defense and strategy" },
+  { src: "/images/hero/slide-2.jpg",     alt: "Military operations" },
+  { src: "/images/hero/slide-3.jpg",     alt: "Engineering solutions" },
+  { src: "/images/hero/slide-4.jpg",     alt: "Government contracting" },
+  { src: "/images/hero/slide-5.jpg",     alt: "Strategic leadership" },
+];
+
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const siteConfig = {
