@@ -3,7 +3,7 @@ import { Barlow_Condensed, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { siteConfig, IMAGES } from "@/lib/content";
+import { siteConfig } from "@/lib/content";
 
 // ── Fonts ─────────────────────────────────────────────────────────────────
 const barlowCondensed = Barlow_Condensed({
@@ -57,10 +57,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: IMAGES.opsRoom,
-        width: 1536,
-        height: 1024,
-        alt: "TTK LLC defense operations team",
+        url: "/og-image.jpg",
+        width: 1920,
+        height: 1278,
+        alt: "TTK LLC — Defense. Engineering. Results.",
       },
     ],
   },
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     title: `${siteConfig.shortName} | ${siteConfig.tagline}`,
     description:
       "Expert defense consulting, MOSA advisory, and leadership development for government and industry.",
-    images: [IMAGES.opsRoom],
+    images: ["/og-image.jpg"],
   },
 };
 
