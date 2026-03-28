@@ -1,91 +1,58 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// LinkedIn Posts Data
+// ── LinkedIn Posts ─────────────────────────────────────────────────────────────
 //
 // HOW TO ADD A NEW POST:
-//   1. Copy the template block below and paste it at the TOP of the `posts`
-//      array (newest first — the homepage always shows the first 3 entries).
-//   2. Fill in each field. Use ISO format for `date` (YYYY-MM-DD) so sorting
-//      works correctly. Set `displayDate` to a human-readable label ("Mar 2025").
-//   3. Set `url` to the full LinkedIn post URL (not the profile URL).
-//   4. Save — no component files need to change.
+//   1. Save the screenshot to:  public/images/linkedin/post-N.jpg
+//   2. Copy one of the entries below and paste it at the top of the array.
+//   3. Update id, image, alt, postUrl, and (optionally) date and label.
+//   No component files need to change — the page reads directly from this array.
 //
-// TEMPLATE:
-//   {
-//     id:          "unique-slug",
-//     tag:         "MOSA | Acquisition | Leadership | Strategy | Engineering",
-//     date:        "2025-03-01",
-//     displayDate: "Mar 2025",
-//     title:       "Post title here",
-//     excerpt:     "Two to three sentence teaser that appears on the card.",
-//     url:         "https://www.linkedin.com/posts/...",
-//   },
-// ─────────────────────────────────────────────────────────────────────────────
+// HOW TO REPLACE A SCREENSHOT:
+//   - Swap the image file in public/images/linkedin/
+//   - Update the `image` path and `alt` text here to match.
+//
+// ──────────────────────────────────────────────────────────────────────────────
 
 export interface LinkedInPost {
-  /** Unique kebab-case identifier — used as React key */
-  id:          string;
-  /** Short category label shown in the card tag pill */
-  tag:         string;
-  /** ISO date string (YYYY-MM-DD) — used for chronological sorting */
-  date:        string;
-  /** Human-readable date label shown in the UI ("Feb 2025") */
-  displayDate: string;
-  /** Card headline — keep under ~60 characters for best layout */
-  title:       string;
-  /** Card body — 2–3 sentences; rendered with line-clamp in the UI */
-  excerpt:     string;
-  /** Full URL to the LinkedIn post */
-  url:         string;
+  /** Unique identifier — used as the React key */
+  id: string;
+  /** Image path relative to /public — e.g. "/images/linkedin/post-1.jpg" */
+  image: string;
+  /** Descriptive alt text for screen readers (describe what's actually in the post) */
+  alt: string;
+  /** Full URL to the real LinkedIn post */
+  postUrl: string;
+  /** Optional: human-readable date shown on the card — e.g. "Feb 2025" */
+  date?: string;
+  /** Optional: short topic label shown on the card — e.g. "MOSA" or "Acquisition" */
+  label?: string;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Posts — newest first. The homepage shows the first FEATURED_COUNT entries.
-// Add new posts at the TOP of this array.
-// ─────────────────────────────────────────────────────────────────────────────
+export const LINKEDIN_PROFILE_URL = "https://www.linkedin.com/in/matt-sipe-12180218";
 
-export const posts: LinkedInPost[] = [
-  // ↓ ADD NEW POSTS HERE ↓
+// Posts are displayed in the order listed here. Put newest posts first.
+export const linkedInPosts: LinkedInPost[] = [
   {
-    id:          "mosa-programs-wrong",
-    tag:         "MOSA",
-    date:        "2025-02-15",
-    displayDate: "Feb 2025",
-    title:       "Why Most Programs Are Getting MOSA Wrong",
-    excerpt:
-      "MOSA compliance isn't just about checking a box on your RFP. After reviewing dozens of OSMPs, I keep seeing the same costly misunderstanding — and it's setting programs up for integration failure down the road.",
-    url:         "https://www.linkedin.com/in/matt-sipe-12180218",
+    id: "ats-mosa-acquisition-freedom",
+    image: "/images/linkedin/post-1.jpg",          // ← swap file name here to replace
+    alt: "Matt Sipe LinkedIn post: The Acquisition Transformation Strategy (ATS) is a FANTASTIC way to drive the kind of change that the Department has needed — includes MOSA = Acquisition Freedom diagram showing capability agility through acquisition transformation",
+    postUrl: "https://www.linkedin.com/posts/matt-sipe-12180218_change-leadership-capability-activity-7392759997140512768-ItUp?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGZCQ-MBprRxaCpmBOmawULLDIRAob7ZV08",
+    date: "Feb 2025",
+    label: "Acquisition",
   },
   {
-    id:          "hidden-cost-cdr",
-    tag:         "Acquisition",
-    date:        "2025-01-20",
-    displayDate: "Jan 2025",
-    title:       "The Hidden Cost of a Poorly Run CDR",
-    excerpt:
-      "A Critical Design Review isn't a presentation — it's a decision gate. When program managers treat it like a briefing, they burn credibility, delay timelines, and miss the exact risks they were supposed to catch.",
-    url:         "https://www.linkedin.com/in/matt-sipe-12180218",
+    id: "mosa-at-scale-transformation",
+    image: "/images/linkedin/post-2.jpg",          // ← swap file name here to replace
+    alt: "Matt Sipe LinkedIn post: I loudly applaud Acquisition TRANSFORMATION, but ONLY if what we do is going to actually be TRANSFORMATIVE — includes MOSA at Scale Forces Acquisition Transformation to Occur graphic",
+    postUrl: "https://www.linkedin.com/posts/matt-sipe-12180218_mosa-change-transformation-activity-7411941105375719424-dKv9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGZCQ-MBprRxaCpmBOmawULLDIRAob7ZV08",
+    date: "Jan 2025",
+    label: "MOSA",
   },
   {
-    id:          "20-years-dod-leadership",
-    tag:         "Leadership",
-    date:        "2024-12-10",
-    displayDate: "Dec 2024",
-    title:       "What 20 Years in DoD Programs Taught Me About Leadership",
-    excerpt:
-      "The best leaders I worked with in government weren't the ones with the most technical knowledge. They were the ones who knew how to get clarity — and transfer that clarity to their teams under pressure.",
-    url:         "https://www.linkedin.com/in/matt-sipe-12180218",
+    id: "mosa-capability-centric-curve",
+    image: "/images/linkedin/post-3.jpg",          // ← swap file name here to replace
+    alt: "Matt Sipe LinkedIn post: MOSA is acquisition reform — includes Parry Labs capability-centric vs platform-centric defense program performance curve for 2020–2026",
+    postUrl: "https://www.linkedin.com/posts/matt-sipe-12180218_mosa-acquisitiontransformation-defenseinnovation-activity-7428517302347870209-pZOx?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGZCQ-MBprRxaCpmBOmawULLDIRAob7ZV08",
+    date: "Nov 2024",
+    label: "MOSA",
   },
 ];
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Helper — returns the N most recent posts, sorted by date descending.
-// The homepage calls getFeaturedPosts() with no argument to get the default 3.
-// ─────────────────────────────────────────────────────────────────────────────
-
-export const FEATURED_COUNT = 3;
-
-export function getFeaturedPosts(count: number = FEATURED_COUNT): LinkedInPost[] {
-  return [...posts]
-    .sort((a, b) => b.date.localeCompare(a.date))
-    .slice(0, count);
-}
