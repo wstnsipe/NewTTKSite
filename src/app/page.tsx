@@ -4,7 +4,6 @@ import { Capabilities }    from "@/components/sections/Capabilities";
 import { AboutSummary }    from "@/components/sections/AboutSummary";
 import { Testimonial }     from "@/components/sections/Testimonial";
 import { WhyTTK }            from "@/components/sections/WhyTTK";
-import { LinkedInInsights } from "@/components/sections/LinkedInInsights";
 import { CTABanner }        from "@/components/sections/CTABanner";
 
 export default function HomePage() {
@@ -16,7 +15,6 @@ export default function HomePage() {
       <AboutSummary />
       <Testimonial />
       <WhyTTK />
-      <LinkedInInsights />
       <CTABanner />
     </>
   );
