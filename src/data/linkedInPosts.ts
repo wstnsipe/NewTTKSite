@@ -33,7 +33,7 @@ export const LINKEDIN_PROFILE_URL = "https://www.linkedin.com/in/matt-sipe-12180
 export const linkedInPosts: LinkedInPost[] = [
   {
     id: "ats-mosa-acquisition-freedom",
-    image: "/images/linkedin/post-1.jpg",          // ← swap file name here to replace
+    image: "/images/linkedin/post-1.png",          // ← swap file name here to replace
     alt: "Matt Sipe LinkedIn post: The Acquisition Transformation Strategy (ATS) is a FANTASTIC way to drive the kind of change that the Department has needed — includes MOSA = Acquisition Freedom diagram showing capability agility through acquisition transformation",
     postUrl: "https://www.linkedin.com/posts/matt-sipe-12180218_change-leadership-capability-activity-7392759997140512768-ItUp?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGZCQ-MBprRxaCpmBOmawULLDIRAob7ZV08",
     date: "Feb 2025",
@@ -41,7 +41,7 @@ export const linkedInPosts: LinkedInPost[] = [
   },
   {
     id: "mosa-at-scale-transformation",
-    image: "/images/linkedin/post-2.jpg",          // ← swap file name here to replace
+    image: "/images/linkedin/post-2.png",          // ← swap file name here to replace
     alt: "Matt Sipe LinkedIn post: I loudly applaud Acquisition TRANSFORMATION, but ONLY if what we do is going to actually be TRANSFORMATIVE — includes MOSA at Scale Forces Acquisition Transformation to Occur graphic",
     postUrl: "https://www.linkedin.com/posts/matt-sipe-12180218_mosa-change-transformation-activity-7411941105375719424-dKv9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGZCQ-MBprRxaCpmBOmawULLDIRAob7ZV08",
     date: "Jan 2025",
@@ -49,7 +49,7 @@ export const linkedInPosts: LinkedInPost[] = [
   },
   {
     id: "mosa-capability-centric-curve",
-    image: "/images/linkedin/post-3.jpg",          // ← swap file name here to replace
+    image: "/images/linkedin/post-3.png",          // ← swap file name here to replace
     alt: "Matt Sipe LinkedIn post: MOSA is acquisition reform — includes Parry Labs capability-centric vs platform-centric defense program performance curve for 2020–2026",
     postUrl: "https://www.linkedin.com/posts/matt-sipe-12180218_mosa-acquisitiontransformation-defenseinnovation-activity-7428517302347870209-pZOx?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGZCQ-MBprRxaCpmBOmawULLDIRAob7ZV08",
     date: "Nov 2024",
